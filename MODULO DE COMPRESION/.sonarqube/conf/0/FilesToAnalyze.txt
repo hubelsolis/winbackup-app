@@ -1,0 +1,5 @@
+﻿C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\RAR\WinFormsAppRAR\WinFormsAppRAR\EstelaRar.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\RAR\WinFormsAppRAR\WinFormsAppRAR\Form1.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\RAR\WinFormsAppRAR\WinFormsAppRAR\Form1.Designer.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\RAR\WinFormsAppRAR\WinFormsAppRAR\Program.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\RAR\WinFormsAppRAR\WinFormsAppRAR\Form1.resx

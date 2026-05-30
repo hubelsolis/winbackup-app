@@ -1,0 +1,5 @@
+﻿C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ZIP\zipChecya\CompresorZip.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ZIP\zipChecya\Form1.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ZIP\zipChecya\Form1.Designer.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ZIP\zipChecya\Program.cs
+C:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ZIP\zipChecya\Form1.resx

@@ -1,0 +1,256 @@
+{
+  "scannerProperties": [
+    {
+      "key": "sonar.scanner.app",
+      "value": "ScannerMSBuild"
+    },
+    {
+      "key": "sonar.scanner.appVersion",
+      "value": "11.2.1"
+    },
+    {
+      "key": "sonar.scanner.bootstrapStartTime",
+      "value": "1780176108000"
+    },
+    {
+      "key": "sonar.projectKey",
+      "value": "ModuloCompresion"
+    },
+    {
+      "key": "sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\.sonar"
+    },
+    {
+      "key": "sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION"
+    },
+    {
+      "key": "sonar.pullrequest.cache.basepath",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION"
+    },
+    {
+      "key": "sonar.sources",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\.vs\\WinFormsAppRAR.slnx\\v18\\DocumentLayout.backup.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\.vs\\WinFormsAppRAR.slnx\\v18\\DocumentLayout.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\.vs\\WinFormsAppRAR.slnx\\v18\\ResourceExplorer\\settings.json"
+    },
+    {
+      "key": "sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "sonar.modules",
+      "value": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC,F35E45A5-4335-82E0-0EA3-59E0BC99D09B,780E7581-9BFA-CF58-64D3-C011353E52B3,01A26A4C-F3C9-477C-A690-9C57DB6EC877,5EF13ADD-9EAE-3351-599A-94BD70A01D68"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.projectKey",
+      "value": "ModuloCompresion:0F8F3942-751C-ABEC-E6D1-217F1BA96EDC"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.projectName",
+      "value": "WinFormsAppRAR"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\.sonar\\mod0"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.sources",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\EstelaRar.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\Form1.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\Form1.Designer.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\Program.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\Form1.resx,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\obj\\WinFormsAppRAR.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\bin\\Debug\\net10.0-windows\\WinFormsAppRAR.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\bin\\Debug\\net10.0-windows\\WinFormsAppRAR.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\obj\\Debug\\net10.0-windows\\WinFormsAppRAR.designer.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\RAR\\WinFormsAppRAR\\WinFormsAppRAR\\obj\\Debug\\net10.0-windows\\WinFormsAppRAR.designer.runtimeconfig.json"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\0"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\0\\Issues.json"
+    },
+    {
+      "key": "0F8F3942-751C-ABEC-E6D1-217F1BA96EDC.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\0\\Telemetry.json"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.projectKey",
+      "value": "ModuloCompresion:F35E45A5-4335-82E0-0EA3-59E0BC99D09B"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.projectName",
+      "value": "WinFormsLZMA"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\.sonar\\mod1"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.sources",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\obj\\WinFormsLZMA.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\bin\\Debug\\net8.0-windows\\WinFormsLZMA.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\bin\\Debug\\net8.0-windows\\WinFormsLZMA.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\obj\\Debug\\net8.0-windows\\WinFormsLZMA.designer.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\obj\\Debug\\net8.0-windows\\WinFormsLZMA.designer.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\Form1.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\Form1.Designer.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\Program.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\RomeroLzma.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\LZMA\\WinFormsLZMA\\Form1.resx"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\1"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\1\\Issues.json"
+    },
+    {
+      "key": "F35E45A5-4335-82E0-0EA3-59E0BC99D09B.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\1\\Telemetry.json"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.projectKey",
+      "value": "ModuloCompresion:780E7581-9BFA-CF58-64D3-C011353E52B3"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.projectName",
+      "value": "zipChecya"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\.sonar\\mod2"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.sources",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\obj\\zipChecya.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\.vs\\zipChecya.slnx\\v18\\DocumentLayout.backup.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\.vs\\zipChecya.slnx\\v18\\DocumentLayout.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\bin\\Debug\\net10.0-windows\\zipChecya.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\bin\\Debug\\net10.0-windows\\zipChecya.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\obj\\Debug\\net10.0-windows\\zipChecya.designer.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\obj\\Debug\\net10.0-windows\\zipChecya.designer.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\CompresorZip.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\Form1.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\Form1.Designer.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\Program.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ZIP\\zipChecya\\Form1.resx"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\2"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\2\\Issues.json"
+    },
+    {
+      "key": "780E7581-9BFA-CF58-64D3-C011353E52B3.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\2\\Telemetry.json"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.projectKey",
+      "value": "ModuloCompresion:01A26A4C-F3C9-477C-A690-9C57DB6EC877"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.projectName",
+      "value": "zipChecya.Tests"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\.sonar\\mod3"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.sources",
+      "value": ""
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.tests",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\obj\\zipChecya.Tests.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\zipChecya.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\zipChecya.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\zipChecya.Tests.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\zipChecya.Tests.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\linux-musl-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\linux-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\osx-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-arm64\\native\\Cov_arm64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-arm64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-arm64\\native\\Cov_x86.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-x64\\native\\Cov_arm64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-x64\\native\\Cov_x86.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-x86\\native\\Cov_arm64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-x86\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\bin\\Debug\\net10.0-windows\\runtimes\\win-x86\\native\\Cov_x86.config,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\MSTestSettings.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\zipChecya.Tests\\Test1.cs"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\3"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\3\\Issues.json"
+    },
+    {
+      "key": "01A26A4C-F3C9-477C-A690-9C57DB6EC877.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\3\\Telemetry.json"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.projectKey",
+      "value": "ModuloCompresion:5EF13ADD-9EAE-3351-599A-94BD70A01D68"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.projectName",
+      "value": "ModuloCompresion"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\.sonar\\mod4"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.sources",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\obj\\ModuloCompresion.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\.vs\\ModuloCompresion.slnx\\v18\\DocumentLayout.backup.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\.vs\\ModuloCompresion.slnx\\v18\\DocumentLayout.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\ModuloCompresion.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\ModuloCompresion.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\WinFormsAppRAR.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\WinFormsAppRAR.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\WinFormsLZMA.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\WinFormsLZMA.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\zipChecya.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\bin\\Debug\\net10.0-windows\\zipChecya.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\obj\\Debug\\net10.0-windows\\ModuloCompresion.designer.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\obj\\Debug\\net10.0-windows\\ModuloCompresion.designer.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\Form1.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\Form1.Designer.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\Program.cs,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\Form1.resx,C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\ModuloCompresion\\Properties\\Resources.resx"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\4"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\4\\Issues.json"
+    },
+    {
+      "key": "5EF13ADD-9EAE-3351-599A-94BD70A01D68.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\MODULO DE COMPRESION\\.sonarqube\\out\\4\\Telemetry.json"
+    },
+    {
+      "key": "sonar.token",
+      "value": "***"
+    },
+    {
+      "key": "sonar.host.url",
+      "value": "http://localhost:9000"
+    },
+    {
+      "key": "sonar.visualstudio.enable",
+      "value": "false"
+    }
+  ]
+}
