@@ -120,11 +120,13 @@ namespace winbackup
                     resultados.Add(resultado);
                 }
             }
-            catch (UnauthorizedAccessException)
+            catch (UnauthorizedAccessException ex)
             {
+                _log?.Advertencia($"Acceso denegado al enumerar archivos: {ex.Message}");
             }
-            catch (DirectoryNotFoundException)
+            catch (DirectoryNotFoundException ex)
             {
+                _log?.Advertencia($"Carpeta no encontrada durante enumeración: {ex.Message}");
             }
 
             return resultados;
