@@ -15,7 +15,7 @@ namespace winbackup.Core.Transferencia
         private readonly string _password;
         private readonly string _carpetaRemota;
 
-        /// <param name="ftpBaseUrl">URL completa: ftp://162.241.194.172/</param>
+        /// <param name="ftpBaseUrl">URL completa: ftp://192.254.237.233/</param>
         /// <param name="usuario">Usuario FTP</param>
         /// <param name="password">Contraseña FTP</param>
         public TransferenciaFTP(string ftpBaseUrl, string usuario, string password)

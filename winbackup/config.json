@@ -1,11 +1,16 @@
 {
   "CREDENCIALES": {
-    "user": "userexamen@ylh.ywu.temporary.site",
+    "user": "userexamen26@cvgtingomaria.com",
     "pass": "CRmBnDjy5zu0WDkfZVjcOUgdnATHDbNxOQAtCAUfCJc=",
-    "ftpBaseUrl": "ftp://162.241.194.172/"
+    "ftpBaseUrl": "ftp://192.254.237.233/"
+  },
+  "CREDENCIALES_LOCAL": {
+    "user": "windows",
+    "pass": "r2GDj9q3",
+    "sftpHost": "127.0.0.1",
+    "sftpCarpeta": "/Users/WINDOWS/Documents/servidor_STP/"
   },
   "BACKUPS": {
     "backups": "4"
   }
 }
-

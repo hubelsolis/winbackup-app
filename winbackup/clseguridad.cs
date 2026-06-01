@@ -12,6 +12,8 @@ namespace winbackup
         private static readonly string Passphrase = "VIAFACT_SECURITY_KEY_TINGO_2026!";
         private static readonly byte[] Salt = Encoding.ASCII.GetBytes("Salt_Backup_System");
 
+
+
         public static string Encriptar(string textoPlano)
         {
             if (string.IsNullOrEmpty(textoPlano)) return "";

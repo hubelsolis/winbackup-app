@@ -15,11 +15,6 @@ namespace winbackup.Core.Transferencia
         private readonly string _password;
         private readonly string _carpetaRemota;
 
-        /// <param name="host">IP o dominio del servidor</param>
-        /// <param name="puerto">Puerto SFTP, normalmente 22</param>
-        /// <param name="usuario">Usuario SSH</param>
-        /// <param name="password">Contraseña SSH</param>
-        /// <param name="carpetaRemota">Ruta remota donde guardar archivos, ej: "/backups/"</param>
         public TransferenciaSFTP(string host, int puerto, string usuario,
                                  string password, string carpetaRemota = "/")
         {
@@ -32,38 +27,41 @@ namespace winbackup.Core.Transferencia
 
         public void SubirChunk(byte[] datos, int longitud, string nombreArchivoRemoto)
         {
-            using var sftp = new SftpClient(_host, _puerto, _usuario, _password);
+            using var sftp = CrearCliente();
             sftp.Connect();
 
             string rutaRemota = _carpetaRemota + nombreArchivoRemoto;
 
             using var stream = new MemoryStream(datos, 0, longitud);
 
-            // CORRECCIÓN: UploadFile en SSH.NET no acepta 'overwrite' como parámetro nombrado
-            // Se elimina el archivo si existe antes de subir
             if (sftp.Exists(rutaRemota))
                 sftp.DeleteFile(rutaRemota);
 
             sftp.UploadFile(stream, rutaRemota);
-
             sftp.Disconnect();
         }
 
+        /// <summary>
+        /// Retorna true si conecta, lanza excepción con detalle si falla.
+        /// El error real ahora es visible en Form1.
+        /// </summary>
         public bool ProbarConexion()
         {
-            try
-            {
-                using var sftp = new SftpClient(_host, _puerto, _usuario, _password);
-                sftp.ConnectionInfo.Timeout = TimeSpan.FromSeconds(5);
-                sftp.Connect();
-                bool conectado = sftp.IsConnected;
-                sftp.Disconnect();
-                return conectado;
-            }
-            catch
-            {
-                return false;
-            }
+            using var sftp = CrearCliente();
+            sftp.Connect(); // si falla lanza excepción con el motivo real
+            bool conectado = sftp.IsConnected;
+            sftp.Disconnect();
+            return conectado;
+        }
+
+        // ─────────────────────────────────────────────
+        // Crear cliente con configuración estándar
+        // ─────────────────────────────────────────────
+        private SftpClient CrearCliente()
+        {
+            var cliente = new SftpClient(_host, _puerto, _usuario, _password);
+            cliente.ConnectionInfo.Timeout = TimeSpan.FromSeconds(10);
+            return cliente;
         }
     }
 }

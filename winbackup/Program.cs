@@ -12,6 +12,20 @@ namespace winbackup
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+            var config = clconfiguracion.Cargar("config.json");
+            MessageBox.Show(
+                $"LocalUser: '{config.CredencialesLocal?.User}'\n" +
+                $"LocalPass: '{config.CredencialesLocal?.Pass}'\n" +
+                $"LocalHost: '{config.CredencialesLocal?.SftpHost}'",
+                "Debug bin config"
+            );
+
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
         }
+
     }
+
+
 }

@@ -10,9 +10,11 @@ namespace winbackup
     public partial class Form1 : Form
     {
         // ─────────────────────────────────────────────
-        // CAMPO: método de transferencia activo
+        // CAMPOS
         // ─────────────────────────────────────────────
         private ITransferenciaArchivo? _transferencia;
+        private TransferenciaSSH? _ssh;
+        private string _archivoSeleccionado = string.Empty;
 
         // Tamaño de cada chunk: 2 MB
         private const int CHUNK_SIZE = 2 * 1024 * 1024;
@@ -34,7 +36,8 @@ namespace winbackup
             {
                 GlobalData.Config = clconfiguracion.Cargar("config.json");
                 InicializarTransferencia();
-                ActualizarStatus("Listo");
+                ActualizarStatus("Listo — Seleccione un archivo para comenzar");
+                btnEnviar.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -49,26 +52,64 @@ namespace winbackup
 
         // ─────────────────────────────────────────────
         // INICIALIZAR el método de transferencia
-        // Credenciales vienen de config.json (nunca hardcodeadas aquí)
-        // Para cambiar a SFTP: comenta FTP y descomenta SFTP
+        // Todas las credenciales vienen de config.json
         // ─────────────────────────────────────────────
         private void InicializarTransferencia()
         {
-            string url = GlobalData.Config.Credenciales.FtpBaseUrl;
-            string user = GlobalData.Config.Credenciales.User;
-            string pass = GlobalData.Config.Credenciales.Pass;
+            string ftpUrl = GlobalData.Config.Credenciales.FtpBaseUrl;
+            string ftpUser = GlobalData.Config.Credenciales.User;
+            string ftpPass = GlobalData.Config.Credenciales.Pass;
 
-            // OPCIÓN A — FTP (activo por defecto)
-            _transferencia = new TransferenciaFTP(url, user, pass);
+            // Credenciales locales desde config.json
+            string localUser = GlobalData.Config.CredencialesLocal!.User;
+            string localPass = GlobalData.Config.CredencialesLocal!.Pass;
+            string localHost = GlobalData.Config.CredencialesLocal!.SftpHost;
+            string localFolder = GlobalData.Config.CredencialesLocal!.SftpCarpeta;
 
-            // OPCIÓN B — SFTP (más seguro, requiere SSH.NET)
-            // _transferencia = new TransferenciaSFTP(
-            //     host:          "162.241.194.172",
-            //     puerto:        22,
-            //     usuario:       user,
-            //     password:      pass,
-            //     carpetaRemota: "/backups/"
-            // );
+            // OPCIÓN A — FTP docente (comentado)
+            // _transferencia = new TransferenciaFTP(ftpUrl, ftpUser, ftpPass);
+
+            // OPCIÓN B — SFTP local ✅ ACTIVO
+            _transferencia = new TransferenciaSFTP(
+                host: localHost,
+                puerto: 22,
+                usuario: localUser,
+                password: localPass,
+                carpetaRemota: localFolder
+            );
+
+            // SSH — para verificar archivos después de subir
+            _ssh = new TransferenciaSSH(
+                host: localHost,
+                puerto: 22,
+                usuario: localUser,
+                password: localPass
+            );
+        }
+
+        // ─────────────────────────────────────────────
+        // EVENTO: Botón Seleccionar Archivo
+        // ─────────────────────────────────────────────
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            using OpenFileDialog dialogo = new OpenFileDialog
+            {
+                Title = "Seleccionar archivo para backup",
+                Filter = "Todos los archivos (*.*)|*.*|PDF (*.pdf)|*.pdf|Base de datos (*.fdb)|*.fdb|Texto (*.txt)|*.txt",
+                FilterIndex = 1,
+                Multiselect = false
+            };
+
+            if (dialogo.ShowDialog() == DialogResult.OK)
+            {
+                _archivoSeleccionado = dialogo.FileName;
+                lblArchivo.Text = _archivoSeleccionado;
+                lblArchivo.ForeColor = System.Drawing.Color.Black;
+                btnEnviar.Enabled = true;
+
+                RegistrarEnLista($"{DateTime.Now:dd/MM/yyyy HH:mm} — Archivo seleccionado: {Path.GetFileName(_archivoSeleccionado)}");
+                ActualizarStatus($"Archivo listo: {Path.GetFileName(_archivoSeleccionado)}");
+            }
         }
 
         // ─────────────────────────────────────────────
@@ -83,36 +124,44 @@ namespace winbackup
                 return;
             }
 
-            // Archivo origen — pendiente parametrizar desde UI
-            string archivoLocal = @"D:\PDF-DOC-E001-10420604979669.pdf";
-
-            if (!File.Exists(archivoLocal))
+            if (string.IsNullOrEmpty(_archivoSeleccionado) || !File.Exists(_archivoSeleccionado))
             {
-                MessageBox.Show($"No se encontró el archivo:\n{archivoLocal}",
-                    "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecciona un archivo válido antes de enviar.",
+                    "Archivo no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             btnEnviar.Enabled = false;
+            btnSeleccionar.Enabled = false;
             ActualizarStatus("Verificando conexión...");
 
             try
             {
-                // 1. VERIFICAR CONEXIÓN antes de empezar
+                // 1. VERIFICAR CONEXIÓN
                 bool conectado = await Task.Run(() => _transferencia.ProbarConexion());
                 if (!conectado)
                 {
                     MessageBox.Show(
-                        "No se puede conectar al servidor.\nVerifica las credenciales y la red.",
+                        "No se puede conectar al servidor.\n" +
+                        "Verifica que el servidor esté activo y las credenciales sean correctas.",
                         "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // 2. EJECUTAR el proceso en hilo secundario
-                await Task.Run(() => EjecutarBackup(archivoLocal));
+                // 2. EJECUTAR BACKUP
+                await Task.Run(() => EjecutarBackup(_archivoSeleccionado));
 
                 ActualizarStatus("Completado correctamente");
-                RegistrarEnLista($"{DateTime.Now:dd/MM/yyyy HH:mm} — Backup OK: {Path.GetFileName(archivoLocal)}");
+                RegistrarEnLista($"{DateTime.Now:dd/MM/yyyy HH:mm} — Backup OK: {Path.GetFileName(_archivoSeleccionado)}");
+
+                // 3. VERIFICAR CON SSH que los archivos llegaron
+                if (_ssh is not null)
+                    await Task.Run(() => VerificarConSSH());
+
+                // 4. LIMPIAR selección
+                _archivoSeleccionado = string.Empty;
+                lblArchivo.Text = "Ningún archivo seleccionado";
+                lblArchivo.ForeColor = System.Drawing.Color.Gray;
 
                 MessageBox.Show("Archivo comprimido y subido con éxito.",
                     "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -120,19 +169,59 @@ namespace winbackup
             catch (Exception ex)
             {
                 ActualizarStatus("Error en el proceso");
-                RegistrarEnLista($"{DateTime.Now:dd/MM/yyyy HH:mm} — ERROR: {ex.Message}");
-                MessageBox.Show($"Error durante el proceso:\n{ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                string detalle = ex.Message;
+                if (ex.InnerException != null)
+                    detalle += $"\nDetalle: {ex.InnerException.Message}";
+
+                RegistrarEnLista($"{DateTime.Now:dd/MM/yyyy HH:mm} — ERROR: {detalle}");
+                MessageBox.Show($"Error:\n{detalle}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                btnEnviar.Enabled = true;
+                btnSeleccionar.Enabled = true;
+                btnEnviar.Enabled = !string.IsNullOrEmpty(_archivoSeleccionado);
+            }
+        }
+
+        // ─────────────────────────────────────────────
+        // VERIFICAR con SSH que los archivos llegaron
+        // Usa comando Windows: dir
+        // ─────────────────────────────────────────────
+        private void VerificarConSSH()
+        {
+            if (_ssh is null) return;
+
+            try
+            {
+                // Comando Windows para listar la carpeta destino
+                string lista = _ssh.EjecutarComando(
+                    @"dir C:\Users\WINDOWS\Documents\servidor_STP"
+                );
+
+                RegistrarEnLista("── Archivos verificados en servidor (SSH) ──");
+
+                if (string.IsNullOrWhiteSpace(lista))
+                {
+                    RegistrarEnLista("  Sin respuesta del servidor.");
+                    return;
+                }
+
+                foreach (string linea in lista.Split('\n'))
+                {
+                    if (!string.IsNullOrWhiteSpace(linea))
+                        RegistrarEnLista("  " + linea.Trim());
+                }
+            }
+            catch (Exception ex)
+            {
+                RegistrarEnLista($"SSH error: {ex.Message}");
             }
         }
 
         // ─────────────────────────────────────────────
         // LÓGICA PRINCIPAL DE BACKUP
-        // 1. Comprimir → 2. Dividir en chunks → 3. Subir → 4. Limpiar
+        // 1. Comprimir → 2. Dividir chunks → 3. Subir → 4. Limpiar
         // ─────────────────────────────────────────────
         private void EjecutarBackup(string archivoLocal)
         {
@@ -142,12 +231,10 @@ namespace winbackup
             {
                 ActualizarStatus("Comprimiendo archivo...");
                 Comprimir(archivoLocal, zipPath);
-
                 SubirEnChunks(zipPath);
             }
             finally
             {
-                // Siempre limpiar el ZIP temporal, incluso si hay error
                 if (File.Exists(zipPath))
                     File.Delete(zipPath);
             }
@@ -180,18 +267,14 @@ namespace winbackup
             while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string nombreRemoto = $"{Path.GetFileName(zipPath)}.part{partNumber:D3}";
-
                 ActualizarStatus($"Subiendo parte {partNumber} de {totalParts}...");
-
                 _transferencia!.SubirChunk(buffer, bytesRead, nombreRemoto);
-
                 partNumber++;
             }
         }
 
         // ─────────────────────────────────────────────
-        // ACTUALIZAR la barra de estado (sttBarraEstado)
-        // Funciona desde hilos secundarios con InvokeRequired
+        // ACTUALIZAR barra de estado desde cualquier hilo
         // ─────────────────────────────────────────────
         private void ActualizarStatus(string texto)
         {
@@ -221,7 +304,7 @@ namespace winbackup
         }
 
         // ─────────────────────────────────────────────
-        // SYSTEM TRAY — minimizar a bandeja del sistema
+        // SYSTEM TRAY
         // ─────────────────────────────────────────────
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -249,7 +332,7 @@ namespace winbackup
         }
 
         // ─────────────────────────────────────────────
-        // MENÚ CONTEXTUAL del system tray
+        // MENÚ CONTEXTUAL
         // ─────────────────────────────────────────────
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e) { }
 
