@@ -10,14 +10,16 @@ namespace winbackup
     {
         private FileSystemWatcher _watcher;
         private readonly int _debounceMs;
+        private readonly ILogService _log;
         private readonly ConcurrentDictionary<string, CancellationTokenSource> _debounceTokens = new(StringComparer.OrdinalIgnoreCase);
 
         public event Action<FileChangeEvent> OnCambioDetectado;
         public bool EstaActivo => _watcher?.EnableRaisingEvents ?? false;
 
-        public FileSystemMonitor(int debounceMs = 1500)
+        public FileSystemMonitor(int debounceMs = 1500, ILogService log = null)
         {
             _debounceMs = debounceMs;
+            _log = log;
         }
 
         public void Iniciar(string ruta, string filtro = "*.*", bool incluirSubcarpetas = true)
@@ -38,6 +40,7 @@ namespace winbackup
             _watcher.Changed += (s, e) => AplicarDebounce(e.FullPath, TipoCambio.Modificado);
             _watcher.Deleted += (s, e) => DispararEvento(e.FullPath, TipoCambio.Eliminado);
             _watcher.Renamed += (s, e) => DispararEvento(e.FullPath, TipoCambio.Renombrado);
+            _watcher.Error += (s, e) => _log?.Error($"FileSystemWatcher error: {e.GetException()?.Message}");
         }
 
         public void Detener()

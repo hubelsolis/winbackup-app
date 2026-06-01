@@ -203,7 +203,7 @@ namespace winbackup
                     {
                         foreach (var ruta in GlobalData.Config.Rutas.Carpetas)
                         {
-                            var monitor = new FileSystemMonitor(sincro.DebounceMs);
+                            var monitor = new FileSystemMonitor(sincro.DebounceMs, _log);
                             monitor.OnCambioDetectado += Monitor_OnCambioDetectado;
                             monitor.Iniciar(ruta.Origen, ruta.Patron, ruta.IncluirSubcarpetas);
                             _monitores.Add(monitor);
