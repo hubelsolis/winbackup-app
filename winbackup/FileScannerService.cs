@@ -8,14 +8,16 @@ namespace winbackup
     public class FileScannerService : IFileScannerService
     {
         private readonly IDbfFileValidatorService _dbfValidator;
+        private readonly ILogService _log;
 
-        public FileScannerService() : this(new DbfFileValidatorService())
+        public FileScannerService() : this(new DbfFileValidatorService(), null)
         {
         }
 
-        public FileScannerService(IDbfFileValidatorService dbfValidator)
+        public FileScannerService(IDbfFileValidatorService dbfValidator, ILogService log = null)
         {
             _dbfValidator = dbfValidator;
+            _log = log;
         }
 
         public List<FileScanResult> EscanearTodo()
@@ -23,7 +25,12 @@ namespace winbackup
             var resultados = new List<FileScanResult>();
 
             if (GlobalData.Config?.Rutas?.Carpetas == null)
+            {
+                _log?.Info("EscanearTodo: no hay rutas configuradas.");
                 return resultados;
+            }
+
+            _log?.Info($"Iniciando escaneo de {GlobalData.Config.Rutas.Carpetas.Count} rutas...");
 
             foreach (var ruta in GlobalData.Config.Rutas.Carpetas)
             {
@@ -42,7 +49,12 @@ namespace winbackup
             var resultados = new List<FileScanResult>();
 
             if (!Directory.Exists(ruta.Origen))
+            {
+                _log?.Advertencia($"Carpeta no encontrada: {ruta.Origen}");
                 return resultados;
+            }
+
+            _log?.Info($"Escaneando carpeta: {ruta.Origen}");
 
             var opcionesBusqueda = ruta.IncluirSubcarpetas
                 ? SearchOption.AllDirectories
@@ -81,11 +93,13 @@ namespace winbackup
                     {
                         resultado.EsAccesible = false;
                         resultado.Error = "Acceso denegado";
+                        _log?.Advertencia($"Acceso denegado: {resultado.Nombre}");
                     }
                     catch (IOException ex)
                     {
                         resultado.EsAccesible = false;
                         resultado.Error = ex.Message;
+                        _log?.Error($"Error de lectura: {resultado.Nombre} — {ex.Message}");
                     }
 
                     if (resultado.EsAccesible && resultado.Extension == ".dbf")
@@ -98,6 +112,7 @@ namespace winbackup
                             {
                                 resultado.EsAccesible = false;
                                 resultado.Error = validacion.razon;
+                                _log?.Advertencia($"DBF bloqueado: {resultado.Nombre} — {validacion.razon}");
                             }
                         }
                     }

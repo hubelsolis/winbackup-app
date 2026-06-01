@@ -18,6 +18,7 @@ namespace winbackup
         private IFileScannerService _fileScanner;
         private IBackupScheduler _scheduler;
         private List<IFileSystemMonitor> _monitores;
+        private ILogService _log;
 
         public Form1()
         {
@@ -183,7 +184,8 @@ namespace winbackup
             {
                 GlobalData.Config = clconfiguracion.Cargar("config.json");
 
-                _fileScanner = new FileScannerService(new DbfFileValidatorService());
+                _log = new LogService(lstRegistro);
+                _fileScanner = new FileScannerService(new DbfFileValidatorService(), _log);
                 _snapshotCache = new FileSnapshotCache();
                 _monitores = new List<IFileSystemMonitor>();
 
@@ -231,20 +233,19 @@ namespace winbackup
 
                 if (cambios.HayCambios)
                 {
-                    lstRegistro.Invoke(() =>
-                    {
-                        lstRegistro.Items.Insert(0, $"[{DateTime.Now:HH:mm:ss}] Cambios detectados: {cambios}");
-                    });
+                    foreach (var n in cambios.Nuevos)
+                        _log.Info($"+ {n}");
+                    foreach (var m in cambios.Modificados)
+                        _log.Info($"~ {m}");
+                    foreach (var e in cambios.Eliminados)
+                        _log.Info($"- {e}");
 
                     _snapshotCache.ActualizarDesdeLista(archivosActuales);
                 }
             }
             catch (Exception ex)
             {
-                lstRegistro.Invoke(() =>
-                {
-                    lstRegistro.Items.Insert(0, $"[{DateTime.Now:HH:mm:ss}] Error en sincronización: {ex.Message}");
-                });
+                _log.Error($"Error en sincronización: {ex.Message}");
             }
         }
 
