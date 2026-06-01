@@ -2,10 +2,28 @@
   "CREDENCIALES": {
     "user": "userexamen@ylh.ywu.temporary.site",
     "pass": "CRmBnDjy5zu0WDkfZVjcOUgdnATHDbNxOQAtCAUfCJc=",
-    "ftpBaseUrl": "ftp: //162.241.194.172/"
+    "ftpBaseUrl": "ftp://162.241.194.172/"
   },
   "BACKUPS": {
     "backups": "4"
+  },
+  "RUTAS": {
+    "carpetas": [
+      {
+        "origen": "C:\\Backup\\Fuentes",
+        "destino": "respaldos/contabilidad",
+        "patron": "*.*",
+        "incluirSubcarpetas": true,
+        "excluir": [".tmp", ".log"]
+      },
+      {
+        "origen": "C:\\Sistema\\Data",
+        "destino": "respaldos/dbf",
+        "patron": "*.dbf",
+        "incluirSubcarpetas": false,
+        "excluir": []
+      }
+    ]
   }
 }
 

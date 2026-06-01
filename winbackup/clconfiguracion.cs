@@ -13,6 +13,9 @@ namespace winbackup
         [JsonPropertyName("BACKUPS")]
         public BackupsConfig Backups { get; set; }
 
+        [JsonPropertyName("RUTAS")]
+        public RutasConfig Rutas { get; set; }
+
         public static clconfiguracion Cargar(string rutaArchivo = "config.json")
         {
             try
@@ -52,5 +55,29 @@ namespace winbackup
     {
         [JsonPropertyName("backups")]
         public string Cantidad { get; set; }
+    }
+
+    public class RutaBackupConfig
+    {
+        [JsonPropertyName("origen")]
+        public string Origen { get; set; }
+
+        [JsonPropertyName("destino")]
+        public string Destino { get; set; }
+
+        [JsonPropertyName("patron")]
+        public string Patron { get; set; }
+
+        [JsonPropertyName("incluirSubcarpetas")]
+        public bool IncluirSubcarpetas { get; set; }
+
+        [JsonPropertyName("excluir")]
+        public List<string> Excluir { get; set; }
+    }
+
+    public class RutasConfig
+    {
+        [JsonPropertyName("carpetas")]
+        public List<RutaBackupConfig> Carpetas { get; set; }
     }
 }
