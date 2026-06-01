@@ -274,7 +274,10 @@ namespace winbackup
             {
                 var resultado = CrearResultadoDesdeRuta(cambio.Ruta);
                 if (resultado != null)
+                {
                     _backupEngine.ProcesarArchivoIndividual(resultado);
+                    _snapshotCache.Actualizar(resultado.RutaCompleta, resultado.UltimaModificacion);
+                }
             }
         }
 

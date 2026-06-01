@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="winbackup.Tests/winbackup.Tests.csproj" Id="f4b0a766-804a-49be-af92-818c8c92fad0" />
+  <Project Path="winbackup/winbackup.csproj" />
+</Solution>
