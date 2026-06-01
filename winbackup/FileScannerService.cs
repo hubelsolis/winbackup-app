@@ -7,6 +7,17 @@ namespace winbackup
 {
     public class FileScannerService : IFileScannerService
     {
+        private readonly IDbfFileValidatorService _dbfValidator;
+
+        public FileScannerService() : this(new DbfFileValidatorService())
+        {
+        }
+
+        public FileScannerService(IDbfFileValidatorService dbfValidator)
+        {
+            _dbfValidator = dbfValidator;
+        }
+
         public List<FileScanResult> EscanearTodo()
         {
             var resultados = new List<FileScanResult>();
@@ -75,6 +86,20 @@ namespace winbackup
                     {
                         resultado.EsAccesible = false;
                         resultado.Error = ex.Message;
+                    }
+
+                    if (resultado.EsAccesible && resultado.Extension == ".dbf")
+                    {
+                        var dbfConfig = GlobalData.Config?.Dbf;
+                        if (dbfConfig != null && dbfConfig.Habilitado)
+                        {
+                            var validacion = _dbfValidator.Validar(archivo);
+                            if (!validacion.esValido)
+                            {
+                                resultado.EsAccesible = false;
+                                resultado.Error = validacion.razon;
+                            }
+                        }
                     }
 
                     resultados.Add(resultado);

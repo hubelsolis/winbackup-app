@@ -13,6 +13,9 @@ namespace winbackup
         [JsonPropertyName("BACKUPS")]
         public BackupsConfig Backups { get; set; }
 
+        [JsonPropertyName("DBF_CONFIG")]
+        public DbfConfig Dbf { get; set; }
+
         [JsonPropertyName("RUTAS")]
         public RutasConfig Rutas { get; set; }
 
@@ -97,5 +100,17 @@ namespace winbackup
 
         [JsonPropertyName("soloSiHayCambios")]
         public bool SoloSiHayCambios { get; set; }
+    }
+
+    public class DbfConfig
+    {
+        [JsonPropertyName("habilitado")]
+        public bool Habilitado { get; set; }
+
+        [JsonPropertyName("tamanoMinimoBytes")]
+        public long TamanoMinimoBytes { get; set; }
+
+        [JsonPropertyName("validarCabecera")]
+        public bool ValidarCabecera { get; set; }
     }
 }

@@ -183,7 +183,7 @@ namespace winbackup
             {
                 GlobalData.Config = clconfiguracion.Cargar("config.json");
 
-                _fileScanner = new FileScannerService();
+                _fileScanner = new FileScannerService(new DbfFileValidatorService());
                 _snapshotCache = new FileSnapshotCache();
                 _monitores = new List<IFileSystemMonitor>();
 

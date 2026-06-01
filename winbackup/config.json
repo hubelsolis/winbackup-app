@@ -7,6 +7,11 @@
   "BACKUPS": {
     "backups": "4"
   },
+  "DBF_CONFIG": {
+    "habilitado": true,
+    "tamanoMinimoBytes": 512,
+    "validarCabecera": true
+  },
   "RUTAS": {
     "carpetas": [
       {
