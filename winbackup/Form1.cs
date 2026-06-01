@@ -15,6 +15,7 @@ namespace winbackup
         public Form1()
         {
             InitializeComponent();
+            btnActualizarLista.Click += BtnActualizarLista_Click;
         }
 
         private async void btnEnviar_Click(object sender, EventArgs e)
@@ -179,11 +180,46 @@ namespace winbackup
             {
                 // Usamos el método que creamos en clconfiguracion
                 GlobalData.Config = clconfiguracion.Cargar("config.json");
+                CargarCopiasActivas();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error fatal: No se pudo cargar la configuración. " + ex.Message);
             }
+        }
+
+        private void BtnActualizarLista_Click(object? sender, EventArgs e)
+        {
+            CargarCopiasActivas();
+        }
+
+        private void CargarCopiasActivas()
+        {
+            lstCopias.Items.Clear();
+
+            var backups = GlobalData.Config?.Backups;
+            if (backups == null || backups.Items == null || backups.Items.Count == 0)
+            {
+                lstCopias.Items.Add("No hay copias configuradas.");
+                return;
+            }
+
+            foreach (var copia in backups.Items)
+            {
+                lstCopias.Items.Add(string.Format("{0,-12} {1,-18} {2,-28} {3}", copia.Tipo ?? string.Empty, copia.Nombre ?? string.Empty, copia.Origen ?? string.Empty, copia.Destino ?? string.Empty));
+            }
+        }
+
+        private void configuracionSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using var form = new ConfigSistemaForm();
+            form.ShowDialog(this);
+        }
+
+        private void configuracionDeCopiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using var form = new ConfigCopiasForm();
+            form.ShowDialog(this);
         }
 
         private void btnEnviar_Click_1(object sender, EventArgs e)

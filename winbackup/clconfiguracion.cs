@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -21,11 +22,24 @@ namespace winbackup
                     throw new FileNotFoundException("No existe config.json");
 
                 string jsonString = File.ReadAllText(rutaArchivo);
-                return JsonSerializer.Deserialize<clconfiguracion>(jsonString);
+                return JsonSerializer.Deserialize<clconfiguracion>(jsonString) ?? new clconfiguracion();
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al cargar configuración: " + ex.Message);
+            }
+        }
+
+        public static void Guardar(clconfiguracion config, string rutaArchivo = "config.json")
+        {
+            try
+            {
+                string json = JsonSerializer.Serialize(config, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(rutaArchivo, json);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al guardar configuración: " + ex.Message);
             }
         }
     }
@@ -42,15 +56,52 @@ namespace winbackup
         // Esta es la propiedad que usarás en tu código de backup
         // Al pedirla, se desencripta automáticamente "al vuelo"
         [JsonIgnore]
-        public string Pass => clseguridad.Desencriptar(PassEncriptado);
+        public string Pass
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(PassEncriptado))
+                    return string.Empty;
+
+                string decrypted = clseguridad.Desencriptar(PassEncriptado);
+                return string.IsNullOrEmpty(decrypted) ? PassEncriptado : decrypted;
+            }
+        }
 
         [JsonPropertyName("ftpBaseUrl")]
         public string FtpBaseUrl { get; set; }
+    }
+
+    public class BackupItem
+    {
+        [JsonPropertyName("nombre")]
+        public string Nombre { get; set; }
+
+        [JsonPropertyName("tipo")]
+        public string Tipo { get; set; }
+
+        [JsonPropertyName("origen")]
+        public string Origen { get; set; }
+
+        [JsonPropertyName("destino")]
+        public string Destino { get; set; }
     }
 
     public class BackupsConfig
     {
         [JsonPropertyName("backups")]
         public string Cantidad { get; set; }
+
+        [JsonPropertyName("frecuencia")]
+        public string Frecuencia { get; set; }
+
+        [JsonPropertyName("horaProgramada")]
+        public string HoraProgramada { get; set; }
+
+        [JsonPropertyName("items")]
+        public List<BackupItem> Items { get; set; } = new List<BackupItem>();
+
+        [JsonIgnore]
+        public int CantidadValor => int.TryParse(Cantidad, out int result) ? result : 0;
     }
 }
