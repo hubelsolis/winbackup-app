@@ -35,7 +35,10 @@ namespace winbackup
             foreach (var ruta in GlobalData.Config.Rutas.Carpetas)
             {
                 if (!Directory.Exists(ruta.Origen))
+                {
+                    _log?.Advertencia($"Carpeta no encontrada: {ruta.Origen}");
                     continue;
+                }
 
                 var archivos = EscanearRuta(ruta);
                 resultados.AddRange(archivos);
