@@ -103,9 +103,6 @@ namespace winbackup
 
         [JsonPropertyName("debounceMs")]
         public int DebounceMs { get; set; }
-
-        [JsonPropertyName("soloSiHayCambios")]
-        public bool SoloSiHayCambios { get; set; }
     }
 
     public class DbfConfig
