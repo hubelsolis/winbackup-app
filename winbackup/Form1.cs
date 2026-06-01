@@ -16,6 +16,7 @@ namespace winbackup
     {
         private FileSnapshotCache _snapshotCache;
         private IFileScannerService _fileScanner;
+        private IBackupEngine _backupEngine;
         private IBackupScheduler _scheduler;
         private List<IFileSystemMonitor> _monitores;
         private ILogService _log;
@@ -186,6 +187,7 @@ namespace winbackup
 
                 _log = new LogService(lstRegistro);
                 _fileScanner = new FileScannerService(new DbfFileValidatorService(), _log);
+                _backupEngine = new BackupEngine(_log);
                 _snapshotCache = new FileSnapshotCache();
                 _monitores = new List<IFileSystemMonitor>();
 
@@ -240,6 +242,7 @@ namespace winbackup
                     foreach (var e in cambios.Eliminados)
                         _log.Info($"- {e}");
 
+                    _backupEngine.ProcesarCambios(archivosActuales, cambios);
                     _snapshotCache.ActualizarDesdeLista(archivosActuales);
                 }
             }
@@ -266,6 +269,45 @@ namespace winbackup
                 if (cambio.Tipo == TipoCambio.Eliminado)
                     _snapshotCache.Remover(cambio.Ruta);
             });
+
+            if (cambio.Tipo == TipoCambio.Creado || cambio.Tipo == TipoCambio.Modificado)
+            {
+                var resultado = CrearResultadoDesdeRuta(cambio.Ruta);
+                if (resultado != null)
+                    _backupEngine.ProcesarArchivoIndividual(resultado);
+            }
+        }
+
+        private FileScanResult CrearResultadoDesdeRuta(string rutaCompleta)
+        {
+            try
+            {
+                var info = new FileInfo(rutaCompleta);
+                var rutas = GlobalData.Config?.Rutas?.Carpetas;
+                if (rutas == null) return null;
+
+                foreach (var ruta in rutas)
+                {
+                    if (rutaCompleta.StartsWith(ruta.Origen, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return new FileScanResult
+                        {
+                            RutaCompleta = rutaCompleta,
+                            Nombre = info.Name,
+                            Extension = info.Extension?.ToLowerInvariant(),
+                            TamañoBytes = info.Length,
+                            UltimaModificacion = info.LastWriteTime,
+                            CarpetaOrigen = ruta.Origen,
+                            RutaRelativa = Path.GetRelativePath(ruta.Origen, rutaCompleta),
+                            EsAccesible = true
+                        };
+                    }
+                }
+            }
+            catch
+            {
+            }
+            return null;
         }
 
         private void comprobarCambiosToolStripMenuItem_Click(object sender, EventArgs e)
