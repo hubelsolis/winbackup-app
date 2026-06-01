@@ -67,10 +67,10 @@ namespace winbackup
             string localFolder = GlobalData.Config.CredencialesLocal!.SftpCarpeta;
 
             // OPCIÓN A — FTP docente (comentado)
-            // _transferencia = new TransferenciaFTP(ftpUrl, ftpUser, ftpPass);
+             _transferencia = new TransferenciaFTP(ftpUrl, ftpUser, ftpPass);
 
             // OPCIÓN B — SFTP local ✅ ACTIVO
-            _transferencia = new TransferenciaSFTP(
+        /*    _transferencia = new TransferenciaSFTP(
                 host: localHost,
                 puerto: 22,
                 usuario: localUser,
@@ -85,7 +85,7 @@ namespace winbackup
                 usuario: localUser,
                 password: localPass
             );
-        }
+       */ }
 
         // ─────────────────────────────────────────────
         // EVENTO: Botón Seleccionar Archivo

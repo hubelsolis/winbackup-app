@@ -1,5 +1,4 @@
 using FluentFTP;
-using System.Net;
 
 namespace winbackup.Core.Transferencia
 {
@@ -20,7 +19,6 @@ namespace winbackup.Core.Transferencia
         /// <param name="password">Contraseña FTP</param>
         public TransferenciaFTP(string ftpBaseUrl, string usuario, string password)
         {
-            // Extraer solo el host de la URL: "ftp://162.241.194.172/" → "162.241.194.172"
             _host = new Uri(ftpBaseUrl).Host;
             _usuario = usuario;
             _password = password;
@@ -35,7 +33,12 @@ namespace winbackup.Core.Transferencia
             string rutaRemota = _carpetaRemota + nombreArchivoRemoto;
 
             using var stream = new MemoryStream(datos, 0, longitud);
-            cliente.UploadStream(stream, rutaRemota, FtpRemoteExists.Overwrite, createRemoteDir: true);
+
+            // NoCheck — sube directamente sin intentar eliminar primero
+            // Evita el error 550 cuando el archivo no existe aún en el servidor
+            cliente.UploadStream(stream, rutaRemota,
+                FtpRemoteExists.NoCheck,
+                createRemoteDir: true);
 
             cliente.Disconnect();
         }
@@ -56,17 +59,14 @@ namespace winbackup.Core.Transferencia
             }
         }
 
-        // ─────────────────────────────────────────────
-        // Crea y configura el cliente FTP
-        // ─────────────────────────────────────────────
         private FtpClient CrearCliente()
         {
             return new FtpClient(_host, _usuario, _password)
             {
                 Config =
                 {
-                    ConnectTimeout  = 5000,
-                    ReadTimeout     = 10000,
+                    ConnectTimeout     = 5000,
+                    ReadTimeout        = 10000,
                     DataConnectionType = FtpDataConnectionType.PASV
                 }
             };

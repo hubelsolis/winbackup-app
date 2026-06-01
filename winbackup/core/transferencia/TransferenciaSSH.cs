@@ -3,8 +3,9 @@ using Renci.SshNet;
 namespace winbackup.Core.Transferencia
 {
     /// <summary>
-    /// Ejecuta comandos remotos por SSH (útil para verificar integridad,
-    /// descomprimir en el servidor o disparar scripts post-backup).
+    /// Ejecuta comandos remotos por SSH.
+    /// Útil para verificar integridad, listar archivos
+    /// o disparar scripts post-backup en el servidor.
     /// Requiere el paquete NuGet: SSH.NET
     /// </summary>
     public class TransferenciaSSH
@@ -24,11 +25,10 @@ namespace winbackup.Core.Transferencia
 
         /// <summary>
         /// Ejecuta un comando en el servidor remoto y devuelve la salida.
-        /// Ejemplo: EjecutarComando("ls /backups/") 
         /// </summary>
         public string EjecutarComando(string comando)
         {
-            using var ssh = new SshClient(_host, _puerto, _usuario, _password);
+            using var ssh = CrearCliente();
             ssh.Connect();
 
             using SshCommand resultado = ssh.RunCommand(comando);
@@ -40,20 +40,25 @@ namespace winbackup.Core.Transferencia
 
         /// <summary>
         /// Verifica si un archivo existe en el servidor remoto.
+        /// Usa PowerShell Test-Path para compatibilidad con Windows.
         /// </summary>
         public bool ArchivoExisteEnServidor(string rutaCompleta)
         {
-            // El comando test devuelve código 0 si existe, 1 si no
-            string salida = EjecutarComando($"test -f \"{rutaCompleta}\" && echo SI || echo NO");
-            return salida.Trim() == "SI";
+            // Escapar backslashes para PowerShell
+            string rutaEscapada = rutaCompleta.Replace("\\", "\\\\");
+            string comando = $"powershell -command \"Test-Path '{rutaEscapada}'\"";
+            string salida = EjecutarComando(comando);
+            return salida.Trim().Contains("True");
         }
 
+        /// <summary>
+        /// Verifica que la conexión SSH funciona.
+        /// </summary>
         public bool ProbarConexion()
         {
             try
             {
-                using var ssh = new SshClient(_host, _puerto, _usuario, _password);
-                ssh.ConnectionInfo.Timeout = TimeSpan.FromSeconds(5);
+                using var ssh = CrearCliente();
                 ssh.Connect();
                 bool conectado = ssh.IsConnected;
                 ssh.Disconnect();
@@ -63,6 +68,16 @@ namespace winbackup.Core.Transferencia
             {
                 return false;
             }
+        }
+
+        // ─────────────────────────────────────────────
+        // Crear cliente SSH con configuración estándar
+        // ─────────────────────────────────────────────
+        private SshClient CrearCliente()
+        {
+            var cliente = new SshClient(_host, _puerto, _usuario, _password);
+            cliente.ConnectionInfo.Timeout = TimeSpan.FromSeconds(10);
+            return cliente;
         }
     }
 }
