@@ -16,6 +16,9 @@ namespace winbackup
         [JsonPropertyName("RUTAS")]
         public RutasConfig Rutas { get; set; }
 
+        [JsonPropertyName("SINCRONIZACION")]
+        public SincronizacionConfig Sincronizacion { get; set; }
+
         public static clconfiguracion Cargar(string rutaArchivo = "config.json")
         {
             try
@@ -79,5 +82,20 @@ namespace winbackup
     {
         [JsonPropertyName("carpetas")]
         public List<RutaBackupConfig> Carpetas { get; set; }
+    }
+
+    public class SincronizacionConfig
+    {
+        [JsonPropertyName("habilitado")]
+        public bool Habilitado { get; set; }
+
+        [JsonPropertyName("intervaloSegundos")]
+        public int IntervaloSegundos { get; set; }
+
+        [JsonPropertyName("debounceMs")]
+        public int DebounceMs { get; set; }
+
+        [JsonPropertyName("soloSiHayCambios")]
+        public bool SoloSiHayCambios { get; set; }
     }
 }

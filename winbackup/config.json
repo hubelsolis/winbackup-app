@@ -24,6 +24,12 @@
         "excluir": []
       }
     ]
+  },
+  "SINCRONIZACION": {
+    "habilitado": true,
+    "intervaloSegundos": 300,
+    "debounceMs": 1500,
+    "soloSiHayCambios": true
   }
 }
 

@@ -1,8 +1,10 @@
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.Logging;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.IO.Compression; // Necesario para ZipArchive
 using System.Net;
 using System.Threading.Tasks;
@@ -12,6 +14,11 @@ namespace winbackup
 {
     public partial class Form1 : Form
     {
+        private FileSnapshotCache _snapshotCache;
+        private IFileScannerService _fileScanner;
+        private IBackupScheduler _scheduler;
+        private List<IFileSystemMonitor> _monitores;
+
         public Form1()
         {
             InitializeComponent();
@@ -158,27 +165,51 @@ namespace winbackup
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Verificamos si el usuario hizo clic en la "X" (UserClosing)
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                // Cancelamos el cierre real
                 e.Cancel = true;
-
-                // Simplemente ocultamos la ventana
                 this.Hide();
-
-                // Opcional: mostrar un globo de texto avisando que sigue abierta
-                //notifyIcon1.ShowBalloonTip(2000, "Sistema de Respaldo", "La aplicación sigue funcionando aquí.", ToolTipIcon.Info);
+                return;
             }
+
+            _scheduler?.Detener();
+            foreach (var m in _monitores ?? Enumerable.Empty<IFileSystemMonitor>())
+                m.Detener();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // En el evento Load de tu formulario principal o en Program.cs
             try
             {
-                // Usamos el método que creamos en clconfiguracion
                 GlobalData.Config = clconfiguracion.Cargar("config.json");
+
+                _fileScanner = new FileScannerService();
+                _snapshotCache = new FileSnapshotCache();
+                _monitores = new List<IFileSystemMonitor>();
+
+                var archivosIniciales = _fileScanner.EscanearTodo();
+                _snapshotCache.ActualizarDesdeLista(archivosIniciales);
+
+                var sincro = GlobalData.Config.Sincronizacion;
+                if (sincro != null && sincro.Habilitado)
+                {
+                    _scheduler = new BackupScheduler();
+                    _scheduler.OnTick += Scheduler_OnTick;
+                    _scheduler.Iniciar(sincro.IntervaloSegundos);
+
+                    if (GlobalData.Config.Rutas?.Carpetas != null)
+                    {
+                        foreach (var ruta in GlobalData.Config.Rutas.Carpetas)
+                        {
+                            var monitor = new FileSystemMonitor(sincro.DebounceMs);
+                            monitor.OnCambioDetectado += Monitor_OnCambioDetectado;
+                            monitor.Iniciar(ruta.Origen, ruta.Patron, ruta.IncluirSubcarpetas);
+                            _monitores.Add(monitor);
+                        }
+                    }
+
+                    lstRegistro.Items.Insert(0, $"[{DateTime.Now:HH:mm:ss}] Sincronización iniciada cada {sincro.IntervaloSegundos}s");
+                }
             }
             catch (Exception ex)
             {
@@ -189,6 +220,57 @@ namespace winbackup
         private void btnEnviar_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Scheduler_OnTick()
+        {
+            try
+            {
+                var archivosActuales = _fileScanner.EscanearTodo();
+                var cambios = _snapshotCache.CompararYDiferenciar(archivosActuales);
+
+                if (cambios.HayCambios)
+                {
+                    lstRegistro.Invoke(() =>
+                    {
+                        lstRegistro.Items.Insert(0, $"[{DateTime.Now:HH:mm:ss}] Cambios detectados: {cambios}");
+                    });
+
+                    _snapshotCache.ActualizarDesdeLista(archivosActuales);
+                }
+            }
+            catch (Exception ex)
+            {
+                lstRegistro.Invoke(() =>
+                {
+                    lstRegistro.Items.Insert(0, $"[{DateTime.Now:HH:mm:ss}] Error en sincronización: {ex.Message}");
+                });
+            }
+        }
+
+        private void Monitor_OnCambioDetectado(FileChangeEvent cambio)
+        {
+            lstRegistro.Invoke(() =>
+            {
+                var tipo = cambio.Tipo switch
+                {
+                    TipoCambio.Creado => "+",
+                    TipoCambio.Modificado => "~",
+                    TipoCambio.Eliminado => "-",
+                    TipoCambio.Renombrado => ">",
+                    _ => "?"
+                };
+                lstRegistro.Items.Insert(0, $"[{cambio.Timestamp:HH:mm:ss}] {tipo} {cambio.Nombre}");
+
+                if (cambio.Tipo == TipoCambio.Eliminado)
+                    _snapshotCache.Remover(cambio.Ruta);
+            });
+        }
+
+        private void comprobarCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Scheduler_OnTick();
+            MessageBox.Show("Verificación completada.", "Comprobar Cambios", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

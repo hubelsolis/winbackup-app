@@ -122,6 +122,7 @@
             comprobarCambiosToolStripMenuItem.Name = "comprobarCambiosToolStripMenuItem";
             comprobarCambiosToolStripMenuItem.Size = new Size(185, 22);
             comprobarCambiosToolStripMenuItem.Text = "Comprobar Cambios";
+            comprobarCambiosToolStripMenuItem.Click += comprobarCambiosToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
