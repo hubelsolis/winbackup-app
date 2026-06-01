@@ -45,7 +45,11 @@ namespace winbackup
                 int read = fs.Read(header, 0, 1);
                 return read == 1 && FirmasValidas.Contains(header[0]);
             }
-            catch
+            catch (IOException)
+            {
+                return false;
+            }
+            catch (UnauthorizedAccessException)
             {
                 return false;
             }
