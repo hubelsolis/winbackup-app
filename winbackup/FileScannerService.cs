@@ -30,7 +30,7 @@ namespace winbackup
                 return resultados;
             }
 
-            _log?.Info($"Iniciando escaneo de {GlobalData.Config.Rutas.Carpetas.Count} rutas...");
+            _log?.Info($"Iniciando escaneo de {GlobalData.Config?.Rutas?.Carpetas?.Count ?? 0} rutas...");
 
             foreach (var ruta in GlobalData.Config.Rutas.Carpetas)
             {
