@@ -26,8 +26,14 @@ namespace winbackup
         {
             try
             {
+                if (!Path.IsPathRooted(rutaArchivo))
+                {
+                    var dir = AppDomain.CurrentDomain.BaseDirectory;
+                    rutaArchivo = Path.Combine(dir, rutaArchivo);
+                }
+
                 if (!File.Exists(rutaArchivo))
-                    throw new FileNotFoundException("No existe config.json");
+                    throw new FileNotFoundException($"No existe {rutaArchivo}");
 
                 string jsonString = File.ReadAllText(rutaArchivo);
                 return JsonSerializer.Deserialize<clconfiguracion>(jsonString);
