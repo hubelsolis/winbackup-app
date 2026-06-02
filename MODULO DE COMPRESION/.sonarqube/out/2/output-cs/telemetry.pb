@@ -1,1 +1,0 @@
-[RNC:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ZIP\zipChecya\zipChecya.csprojòCSharp14

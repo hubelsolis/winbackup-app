@@ -1,7 +1,0 @@
-<Solution>
-  <Project Path="../LZMA/WinFormsLZMA/WinFormsLZMA.csproj" />
-  <Project Path="../RAR/WinFormsAppRAR/WinFormsAppRAR/WinFormsAppRAR.csproj" />
-  <Project Path="../ZIP/zipChecya/zipChecya.csproj" />
-  <Project Path="../zipChecya.Tests/zipChecya.Tests.csproj" Id="01a26a4c-f3c9-477c-a690-9c57db6ec877" />
-  <Project Path="ModuloCompresion.csproj" />
-</Solution>

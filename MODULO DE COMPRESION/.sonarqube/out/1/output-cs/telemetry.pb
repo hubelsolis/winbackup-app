@@ -1,1 +1,0 @@
-bRUC:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\LZMA\WinFormsLZMA\WinFormsLZMA.csprojòCSharp12

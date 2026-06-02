@@ -1,0 +1,16 @@
+﻿C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\clconfiguracion.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\clseguridad.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionCab.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionFactory.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionGzip.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionLzma.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionRar.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionTar.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\CompresionZip.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\compresion\ICompresion.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\Form1.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\Form1.Designer.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\GlobalData.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\Program.cs
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\Form1.resx
+C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup\config.json

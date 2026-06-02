@@ -1,0 +1,11 @@
+|
+qC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\obj\Debug\net8.0-windows\winbackup.Tests.AssemblyInfo.csutf-8Œ
+€C:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\obj\Debug\net8.0-windows\.NETCoreApp,Version=v8.0.AssemblyAttributes.csutf-8~
+sC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\obj\Debug\net8.0-windows\winbackup.Tests.GlobalUsings.g.csutf-8z
+oC:\Users\DIEGCOP20\.nuget\packages\microsoft.net.test.sdk\18.0.1\build\net8.0\Microsoft.NET.Test.Sdk.Program.csutf-8J
+AC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\Test1.csutf-8S
+JC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\MSTestSettings.csutf-8T
+KC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\GlobalDataTests.csutf-8T
+KC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\CompresionTests.csutf-8U
+LC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\clseguridadTests.csutf-8Y
+PC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\clconfiguracionTests.csutf-8

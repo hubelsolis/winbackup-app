@@ -1,1 +1,0 @@
-eRXC:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\ModuloCompresion\ModuloCompresion.csprojòCSharp14

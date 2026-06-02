@@ -1,0 +1,231 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "5.3.0.0",
+        "fileVersion": "5.3.0-2.26219.105 (c23858a6d860abe3ca94f9ac630c3e61b2625664)",
+        "semanticVersion": "5.3.0",
+        "language": "es-ES"
+      },
+      "results": [
+        {
+          "ruleId": "CS8625",
+          "level": "warning",
+          "message": "No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/GlobalDataTests.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 33,
+                  "endLine": 51,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "El elemento campo \"_rutaArchivoTemporal\" que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de agregar el modificador \"required'\"o declarar el campo como un valor que acepta valores NULL.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/clconfiguracionTests.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 24,
+                  "endLine": 10,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/clconfiguracionTests.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 24,
+                  "endLine": 10,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "El elemento campo \"_rutaConfigJson\" que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de agregar el modificador \"required'\"o declarar el campo como un valor que acepta valores NULL.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/GlobalDataTests.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 24,
+                  "endLine": 11,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/GlobalDataTests.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 24,
+                  "endLine": 11,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2699",
+          "level": "warning",
+          "message": "Add at least one assertion to this test case.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/Test1.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 21,
+                  "endLine": 7,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "MSTEST0037",
+          "level": "warning",
+          "message": "Usar \"Assert.IsNotEmpty\" en lugar de \"Assert\".IsTrue\"",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/CompresionTests.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 13,
+                  "endLine": 79,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/CompresionTests.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 27,
+                  "endLine": 79,
+                  "endColumn": 46
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/DIEGCOP20/Desktop/winbackup-app/winbackup.Tests/CompresionTests.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 27,
+                  "endLine": 79,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "CodeFixModeKey": "CodeFixModeSimple",
+              "ProperAssertMethodNameKey": "IsNotEmpty"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de agregar el modificador \"required\" o declararlo como un valor que acepta valores NULL.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8625": {
+          "id": "CS8625",
+          "shortDescription": "No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8625)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "MSTEST0037": {
+          "id": "MSTEST0037",
+          "shortDescription": "Usar métodos \"Assert\" adecuados",
+          "defaultLevel": "warning",
+          "helpUri": "https://learn.microsoft.com/dotnet/core/testing/mstest-analyzers/mstest0037",
+          "properties": {
+            "category": "Usage",
+            "isEnabledByDefault": true
+          }
+        },
+        "S2699": {
+          "id": "S2699",
+          "shortDescription": "Tests should include assertions",
+          "fullDescription": "The rule targets test methods that lack an assertion and consist solely of an action and, optionally, a setup.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Blocker Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

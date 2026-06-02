@@ -1,0 +1,136 @@
+{
+  "scannerProperties": [
+    {
+      "key": "sonar.scanner.app",
+      "value": "ScannerMSBuild"
+    },
+    {
+      "key": "sonar.scanner.appVersion",
+      "value": "11.2.1"
+    },
+    {
+      "key": "sonar.scanner.bootstrapStartTime",
+      "value": "1780375091000"
+    },
+    {
+      "key": "sonar.projectKey",
+      "value": "winbackup-modulo-compresion"
+    },
+    {
+      "key": "sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\.sonar"
+    },
+    {
+      "key": "sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app"
+    },
+    {
+      "key": "sonar.pullrequest.cache.basepath",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app"
+    },
+    {
+      "key": "sonar.sources",
+      "value": ""
+    },
+    {
+      "key": "sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "sonar.modules",
+      "value": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C,F4B0A766-804A-49BE-AF92-818C8C92FAD0"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.projectKey",
+      "value": "winbackup-modulo-compresion:B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.projectName",
+      "value": "winbackup"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\.sonar\\mod0"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.sources",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\clconfiguracion.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\clseguridad.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionCab.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionFactory.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionGzip.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionLzma.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionRar.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionTar.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\CompresionZip.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\compresion\\ICompresion.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\Form1.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\Form1.Designer.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\GlobalData.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\Program.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\Form1.resx,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\config.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\obj\\winbackup.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\.vs\\winbackup.slnx\\v18\\DocumentLayout.backup.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\.vs\\winbackup.slnx\\v18\\DocumentLayout.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\bin\\Debug\\net8.0-windows\\winbackup.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\bin\\Debug\\net8.0-windows\\winbackup.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup\\obj\\Debug\\net8.0-windows\\winbackup.sourcelink.json"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\0"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\0\\Issues.json"
+    },
+    {
+      "key": "B318907A-E7FC-C7D8-3AFA-CC6E68C60D1C.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\0\\Telemetry.json"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.projectKey",
+      "value": "winbackup-modulo-compresion:F4B0A766-804A-49BE-AF92-818C8C92FAD0"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.projectName",
+      "value": "winbackup.Tests"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.projectBaseDir",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.working.directory",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\.sonar\\mod1"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.sources",
+      "value": ""
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.tests",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\obj\\project.assets.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\obj\\winbackup.Tests.csproj.nuget.dgspec.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\winbackup.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\winbackup.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\winbackup.Tests.deps.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\winbackup.Tests.runtimeconfig.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\obj\\Debug\\net8.0-windows\\winbackup.Tests.sourcelink.json,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\linux-musl-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\linux-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\osx-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-arm64\\native\\Cov_arm64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-arm64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-arm64\\native\\Cov_x86.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-x64\\native\\Cov_arm64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-x64\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-x64\\native\\Cov_x86.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-x86\\native\\Cov_arm64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-x86\\native\\Cov_x64.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\bin\\Debug\\net8.0-windows\\runtimes\\win-x86\\native\\Cov_x86.config,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\clconfiguracionTests.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\clseguridadTests.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\CompresionTests.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\GlobalDataTests.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\MSTestSettings.cs,C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\winbackup.Tests\\Test1.cs"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\1"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\1\\Issues.json"
+    },
+    {
+      "key": "F4B0A766-804A-49BE-AF92-818C8C92FAD0.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\DIEGCOP20\\Desktop\\winbackup-app\\.sonarqube\\out\\1\\Telemetry.json"
+    },
+    {
+      "key": "sonar.token",
+      "value": "***"
+    },
+    {
+      "key": "sonar.host.url",
+      "value": "http://localhost:9000"
+    },
+    {
+      "key": "sonar.visualstudio.enable",
+      "value": "false"
+    }
+  ]
+}

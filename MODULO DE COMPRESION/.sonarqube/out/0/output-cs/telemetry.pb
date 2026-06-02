@@ -1,1 +1,0 @@
-tRgC:\Users\DIEGCOP20\Desktop\MODULO DE COMPRESION\RAR\WinFormsAppRAR\WinFormsAppRAR\WinFormsAppRAR.csprojòCSharp14

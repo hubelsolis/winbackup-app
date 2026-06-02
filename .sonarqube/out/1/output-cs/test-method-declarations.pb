@@ -1,0 +1,20 @@
+z
+AC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\Test1.cswinbackup.Tests$
+winbackup.Tests.Test1TestMethod1È
+KC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\GlobalDataTests.cswinbackup.Testsh
+winbackup.Tests.GlobalDataTestsEInicializar_ArchivoConfigExistente_CargaContenedorGlobalCorrectamenteé
+KC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\CompresionTests.cswinbackup.TestsJ
+winbackup.Tests.CompresionTests'ZIP_Comprimir_SinContrasena_CreaArchivoJ
+winbackup.Tests.CompresionTests'ZIP_Comprimir_ConContrasena_CreaArchivoO
+winbackup.Tests.CompresionTests,ZIP_Descomprimir_SinContrasena_ExtraeArchivoF
+winbackup.Tests.CompresionTests#ZIP_ListarContenido_RetornaArchivos<
+winbackup.Tests.CompresionTestsTAR_Comprimir_CreaArchivoA
+winbackup.Tests.CompresionTestsTAR_Descomprimir_ExtraeArchivo=
+winbackup.Tests.CompresionTestsGZIP_Comprimir_CreaArchivoK
+winbackup.Tests.CompresionTests(LZMA_Comprimir_SinContrasena_CreaArchivoK
+winbackup.Tests.CompresionTests(LZMA_Comprimir_ConContrasena_CreaArchivoŠ
+LC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\clseguridadTests.cswinbackup.Tests[
+ winbackup.Tests.clseguridadTests7EncriptarYDesencriptar_TextoValido_RetornaTextoOriginalL
+ winbackup.Tests.clseguridadTests(Encriptar_CadenaVacia_RetornaCadenaVaciaÊ
+PC:\Users\DIEGCOP20\Desktop\winbackup-app\winbackup.Tests\clconfiguracionTests.cswinbackup.Testse
+$winbackup.Tests.clconfiguracionTests=LeerConfiguracion_ArchivoValido_MapeaPropiedadesCorrectamente
