@@ -1,0 +1,49 @@
+﻿using SharpCompress.Common;
+using SharpCompress.Readers;
+using SharpCompress.Writers;
+
+namespace winbackup.compresion
+{
+    public class CompresionGzip : ICompresion
+    {
+        public void Comprimir(string rutaEntrada, string rutaSalida, string contrasena = "")
+        {
+            using var stream = File.Create(rutaSalida);
+            using var writer = WriterFactory.Open(stream,
+                ArchiveType.Tar,
+                new WriterOptions(CompressionType.GZip));
+
+            if (File.Exists(rutaEntrada))
+                writer.Write(Path.GetFileName(rutaEntrada), rutaEntrada);
+            else if (Directory.Exists(rutaEntrada))
+                foreach (var archivo in Directory.GetFiles(rutaEntrada, "*", SearchOption.AllDirectories))
+                    writer.Write(Path.GetRelativePath(rutaEntrada, archivo), archivo);
+        }
+
+        public void Descomprimir(string rutaEntrada, string rutaDestino, string contrasena = "")
+        {
+            using var stream = File.OpenRead(rutaEntrada);
+            using var reader = ReaderFactory.Open(stream);
+            while (reader.MoveToNextEntry())
+            {
+                if (!reader.Entry.IsDirectory)
+                    reader.WriteEntryToDirectory(rutaDestino,
+                        new ExtractionOptions
+                        {
+                            ExtractFullPath = true,
+                            Overwrite = true
+                        });
+            }
+        }
+
+        public List<string> ListarContenido(string rutaArchivo)
+        {
+            var lista = new List<string>();
+            using var stream = File.OpenRead(rutaArchivo);
+            using var reader = ReaderFactory.Open(stream);
+            while (reader.MoveToNextEntry())
+                lista.Add($"{reader.Entry.Key} ({reader.Entry.Size} bytes)");
+            return lista;
+        }
+    }
+}

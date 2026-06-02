@@ -1,0 +1,6 @@
+projectKey=winbackup-modulo-compresion
+serverUrl=http://localhost:9000
+serverVersion=26.5.0.122743
+dashboardUrl=http://localhost:9000/dashboard?id=winbackup-modulo-compresion
+ceTaskId=925a65bc-114e-441e-b993-7523cc454851
+ceTaskUrl=http://localhost:9000/api/ce/task?id=925a65bc-114e-441e-b993-7523cc454851
